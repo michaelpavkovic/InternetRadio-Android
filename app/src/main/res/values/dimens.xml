@@ -1,0 +1,30 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- No border-->
+    <dimen name="no_border">0dp</dimen>
+
+    <!-- Main menu button width; used for height as well -->
+    <dimen name="menu_button_width">100dp</dimen>
+
+    <!-- YouTube player dimensions; smallest player possible -->
+    <dimen name="youtube_player_height">110dp</dimen>
+    <dimen name="youtube_player_width">200dp</dimen>
+
+    <!-- Album art width; used for height as well -->
+    <dimen name="album_art_width">256dp</dimen>
+
+    <!-- Radio UI stuff -->
+
+    <!-- Buttons -->
+    <dimen name="play_pause_width">80dp</dimen>
+    <dimen name="accessory_button_width">64dp</dimen>
+    <dimen name="small_button_width">32dp</dimen>
+    <dimen name="details_button_width">48dp</dimen>
+    <dimen name="button_spacing_width">16dp</dimen>
+
+    <!-- Extra dimensions for radio -->
+    <dimen name="extra_control_height">170dp</dimen>
+</resources>

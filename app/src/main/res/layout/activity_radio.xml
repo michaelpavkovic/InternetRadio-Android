@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".activities.nowplaying.Radio"
+    android:background="@color/background_from_art"
+    android:padding="@dimen/no_border">
+
+    <com.mpavkovic.internetradio.utils.SquareImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contextClickable="false"
+        android:id="@+id/squareViewAlbumArt"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@mipmap/no_album_art_light" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:clickable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:touchscreenBlocksFocus="false">
+
+        <fragment
+            android:name="com.google.android.youtube.player.YouTubePlayerFragment"
+            android:id="@+id/songView"
+            android:layout_width="@dimen/youtube_player_width"
+            android:layout_height="@dimen/youtube_player_height"
+            android:paddingEnd="@dimen/activity_vertical_margin"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin" />
+    </RelativeLayout>
+
+    <ImageButton
+        android:layout_width="@dimen/details_button_width"
+        android:layout_height="@dimen/details_button_width"
+        android:id="@+id/imageButtonShow"
+        android:src="@mipmap/up"
+        android:scaleType="fitCenter"
+        android:background="@color/transparent"
+        android:layout_above="@+id/playback"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/button_spacing_width" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/extra_control_height"
+        android:background="@color/translucent"
+        android:id="@+id/extraControls"
+        android:visibility="invisible"
+        android:layout_alignBottom="@+id/squareViewAlbumArt"
+        android:layout_alignParentStart="true">
+
+        <ImageButton
+            android:layout_width="@dimen/details_button_width"
+            android:layout_height="@dimen/details_button_width"
+            android:id="@+id/imageButtonHide"
+            android:src="@mipmap/down"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/button_spacing_width" />
+
+        <ImageButton
+            android:layout_width="@dimen/small_button_width"
+            android:layout_height="@dimen/small_button_width"
+            android:id="@+id/imageButtonFavorite"
+            android:src="@mipmap/favorite"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:layout_alignBottom="@+id/imageButtonHide"
+            android:layout_toEndOf="@+id/lblTimePassed" />
+
+        <ImageButton
+            android:layout_width="@dimen/small_button_width"
+            android:layout_height="@dimen/small_button_width"
+            android:id="@+id/imageButtonNoVideo"
+            android:src="@mipmap/no_video"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:layout_alignTop="@+id/imageButtonFavorite"
+            android:layout_toEndOf="@+id/imageButtonFavorite"
+            android:layout_marginLeft="@dimen/button_spacing_width" />
+
+        <ImageButton
+            android:layout_width="@dimen/small_button_width"
+            android:layout_height="@dimen/small_button_width"
+            android:id="@+id/imageButtonDislike"
+            android:src="@mipmap/dislike"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:layout_marginRight="@dimen/button_spacing_width"
+            android:layout_alignTop="@+id/imageButtonLike"
+            android:layout_toStartOf="@+id/imageButtonLike" />
+
+        <ImageButton
+            android:layout_width="@dimen/small_button_width"
+            android:layout_height="@dimen/small_button_width"
+            android:id="@+id/imageButtonLike"
+            android:src="@mipmap/like"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:layout_alignBottom="@+id/imageButtonHide"
+            android:layout_toStartOf="@+id/lblTimeRemaining" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBarVolume"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/button_spacing_width"
+            android:layout_marginBottom="@dimen/button_spacing_width"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBarSeek"
+            android:layout_below="@+id/seekBarVolume"
+            android:layout_alignStart="@+id/seekBarVolume"
+            android:layout_alignEnd="@+id/seekBarVolume" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageViewVolumeDown"
+            android:src="@mipmap/volume_down"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/seekBarSeek"
+            android:layout_toStartOf="@+id/seekBarSeek" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageViewVolumeUp"
+            android:src="@mipmap/volume_up"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/seekBarSeek"
+            android:layout_above="@+id/seekBarSeek" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00:00"
+            android:id="@+id/lblTimePassed"
+            android:textColor="@color/white"
+            android:layout_alignBottom="@+id/seekBarSeek"
+            android:layout_toStartOf="@+id/seekBarSeek" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00:00"
+            android:id="@+id/lblTimeRemaining"
+            android:layout_alignBottom="@+id/seekBarSeek"
+            android:layout_toEndOf="@+id/seekBarSeek"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Metadata Available"
+            android:id="@+id/lblMetadata"
+            android:textColor="@android:color/white"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@+id/seekBarSeek"
+            android:layout_toStartOf="@+id/lblTimeRemaining"
+            android:textAlignment="center"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/squareViewAlbumArt"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary"
+        android:id="@+id/playback"
+        android:elevation="2dp">
+
+        <ImageButton
+            android:layout_width="@dimen/accessory_button_width"
+            android:layout_height="@dimen/accessory_button_width"
+            android:id="@+id/imageButtonSkipPrevious"
+            android:src="@mipmap/previous"
+            android:scaleType="fitCenter"
+            android:background="@color/colorPrimary"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/imageButtonPlay"
+            android:layout_marginRight="@dimen/button_spacing_width" />
+
+        <ImageButton
+            android:layout_width="@dimen/play_pause_width"
+            android:layout_height="@dimen/play_pause_width"
+            android:id="@+id/imageButtonPlay"
+            android:src="@mipmap/play"
+            android:scaleType="fitCenter"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary" />
+
+        <ImageButton
+            android:layout_width="@dimen/accessory_button_width"
+            android:layout_height="@dimen/accessory_button_width"
+            android:id="@+id/imageButtonSkipNext"
+            android:src="@mipmap/next"
+            android:scaleType="fitCenter"
+            android:background="@color/colorPrimary"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageButtonPlay"
+            android:layout_marginLeft="@dimen/button_spacing_width" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
